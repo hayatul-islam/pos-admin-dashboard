@@ -37,7 +37,7 @@ const Category = () => {
               <h2>ID</h2>
               <button
                 className="hidden opacity-80 group-hover:block"
-                onClick={() => setIsAscending(!isAscending)}
+                onClick={() => setIsAscending((prevState) => !prevState)}
               >
                 <HiChevronUpDown size={16} />
               </button>
@@ -47,7 +47,19 @@ const Category = () => {
         accessor: "id",
       },
       {
-        Header: "Title",
+        Header: () => {
+          return (
+            <div className="group flex items-center space-x-2">
+              <h2>Title</h2>
+              <button
+                className="hidden opacity-80 group-hover:block"
+                onClick={() => setIsAscending((prevState) => !prevState)}
+              >
+                <HiChevronUpDown size={16} />
+              </button>
+            </div>
+          );
+        },
         accessor: "title",
       },
       {
@@ -65,7 +77,7 @@ const Category = () => {
         ),
       },
     ],
-    []
+    [isAscending]
   );
 
   const useTableData = useTable({ columns, data }, usePagination);

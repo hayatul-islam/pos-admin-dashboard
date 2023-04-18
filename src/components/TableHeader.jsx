@@ -43,7 +43,7 @@ const TableHeader = ({ setQuery }) => {
           title="Create Product Category"
           width="md"
         >
-          <CreateCategoryModal />
+          <CreateCategoryModal closeModal={closeModal} />
         </ModalDialog>
       )}
     </>

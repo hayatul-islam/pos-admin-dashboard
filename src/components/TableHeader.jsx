@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
-import CreateCategoryModal from "./CreateCategoryModal";
+import CreateCategoryModal from "../components/CreateCategoryModal";
+import ModalDialog from "../layout/ModalDialog";
 
 const TableHeader = ({ setQuery }) => {
   let [isOpen, setIsOpen] = useState(false);
@@ -36,7 +37,14 @@ const TableHeader = ({ setQuery }) => {
         </div>
       </div>
       {isOpen && (
-        <CreateCategoryModal isOpen={isOpen} closeModal={closeModal} />
+        <ModalDialog
+          isOpen={isOpen}
+          closeModal={closeModal}
+          title="Create Product Category"
+          width="md"
+        >
+          <CreateCategoryModal />
+        </ModalDialog>
       )}
     </>
   );

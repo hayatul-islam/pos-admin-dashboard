@@ -33,9 +33,12 @@ const Category = () => {
       {
         Header: () => {
           return (
-            <div className="flex items-center space-x-2">
+            <div className="group flex items-center space-x-2">
               <h2>ID</h2>
-              <button onClick={() => setIsAscending(!isAscending)}>
+              <button
+                className="hidden opacity-80 group-hover:block"
+                onClick={() => setIsAscending(!isAscending)}
+              >
                 <HiChevronUpDown size={16} />
               </button>
             </div>

@@ -1,19 +1,18 @@
 import React from "react";
 import { CgPushChevronLeft, CgPushChevronRight } from "react-icons/cg";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
-import { usePagination, useTable } from "react-table";
 
-const TablePagination = ({ data, columns }) => {
-  const {
-    nextPage,
-    previousPage,
-    canPreviousPage,
-    canNextPage,
-    pageOptions,
-    state,
-    gotoPage,
-    pageCount,
-  } = useTable({ columns, data }, usePagination);
+const TablePagination = ({
+  data,
+  nextPage,
+  previousPage,
+  canPreviousPage,
+  canNextPage,
+  pageOptions,
+  state,
+  gotoPage,
+  pageCount,
+}) => {
   const { pageIndex } = state;
   return (
     <div className="pt-6">

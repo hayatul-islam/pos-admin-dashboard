@@ -1,9 +1,14 @@
 import React from "react";
-import { usePagination, useTable } from "react-table";
 
-const Table = ({ columns, data }) => {
-  const { getTableProps, getTableBodyProps, headerGroups, prepareRow, page } =
-    useTable({ columns, data }, usePagination);
+const Table = ({
+  getTableProps,
+  getTableBodyProps,
+  headerGroups,
+  prepareRow,
+  page,
+}) => {
+  // const { getTableProps, getTableBodyProps, headerGroups, prepareRow, page } =
+  //   useTable({ columns, data }, usePagination);
   return (
     <div className="rounded-sm border border-stroke bg-white px-5 py-6 shadow-default dark:border-strokedark dark:bg-boxdark">
       <div className="max-w-full overflow-x-auto">

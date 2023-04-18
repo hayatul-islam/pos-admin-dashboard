@@ -3,7 +3,7 @@ import { AiOutlineSearch } from "react-icons/ai";
 import CreateCategoryModal from "./CreateCategoryModal";
 
 const TableHeader = ({ setQuery }) => {
-  let [isOpen, setIsOpen] = useState(true);
+  let [isOpen, setIsOpen] = useState(false);
 
   function closeModal() {
     setIsOpen(false);

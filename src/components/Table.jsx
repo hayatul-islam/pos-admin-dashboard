@@ -1,14 +1,8 @@
 import React from "react";
 
-const Table = ({
-  getTableProps,
-  getTableBodyProps,
-  headerGroups,
-  prepareRow,
-  page,
-}) => {
-  // const { getTableProps, getTableBodyProps, headerGroups, prepareRow, page } =
-  //   useTable({ columns, data }, usePagination);
+const Table = ({ useTableData }) => {
+  const { getTableProps, getTableBodyProps, headerGroups, prepareRow, page } =
+    useTableData;
   return (
     <div className="rounded-sm border border-stroke bg-white px-5 py-6 shadow-default dark:border-strokedark dark:bg-boxdark">
       <div className="max-w-full overflow-x-auto">

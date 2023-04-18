@@ -64,48 +64,15 @@ const Category = () => {
     ],
     []
   );
-  const {
-    nextPage,
-    previousPage,
-    canPreviousPage,
-    canNextPage,
-    pageOptions,
-    state,
-    gotoPage,
-    pageCount,
-    getTableProps,
-    getTableBodyProps,
-    headerGroups,
-    prepareRow,
-    page,
-  } = useTable({ columns, data }, usePagination);
 
-  console.log(isAscending);
+  const useTableData = useTable({ columns, data }, usePagination);
 
   return (
     <DefaultLayout>
       <div className="bg-gray px-5 py-10">
         <TableHeader setQuery={setQuery} />
-        <Table
-          getTableProps={getTableProps}
-          getTableBodyProps={getTableBodyProps}
-          headerGroups={headerGroups}
-          prepareRow={prepareRow}
-          page={page}
-          columns={columns}
-          data={data}
-        />
-        <TablePagination
-          data={data}
-          nextPage={nextPage}
-          previousPage={previousPage}
-          canPreviousPage={canPreviousPage}
-          canNextPage={canNextPage}
-          pageOptions={pageOptions}
-          state={state}
-          gotoPage={gotoPage}
-          pageCount={pageCount}
-        />
+        <Table useTableData={useTableData} />
+        <TablePagination data={data} useTableData={useTableData} />
       </div>
     </DefaultLayout>
   );

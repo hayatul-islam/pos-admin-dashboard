@@ -2,17 +2,17 @@ import React from "react";
 import { CgPushChevronLeft, CgPushChevronRight } from "react-icons/cg";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
-const TablePagination = ({
-  data,
-  nextPage,
-  previousPage,
-  canPreviousPage,
-  canNextPage,
-  pageOptions,
-  state,
-  gotoPage,
-  pageCount,
-}) => {
+const TablePagination = ({ data, useTableData }) => {
+  const {
+    nextPage,
+    previousPage,
+    canPreviousPage,
+    canNextPage,
+    pageOptions,
+    state,
+    gotoPage,
+    pageCount,
+  } = useTableData;
   const { pageIndex } = state;
   return (
     <div className="pt-6">

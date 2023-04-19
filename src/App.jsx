@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import SignIn from "./pages/Authentication/SignIn";
 import SignUp from "./pages/Authentication/SignUp";
+import Brand from "./pages/Brand";
 import Calendar from "./pages/Calendar";
 import Category from "./pages/Category";
 import Chart from "./pages/Chart";
@@ -42,6 +43,7 @@ const App = () => {
           <Route path="/tables" element={<Tables />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="/category" element={<Category />} />
+          <Route path="/brand" element={<Brand />} />
           <Route path="/chart" element={<Chart />} />
           <Route path="/ui/alerts" element={<Alerts />} />
           <Route path="/ui/buttons" element={<Buttons />} />

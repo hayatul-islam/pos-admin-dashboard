@@ -30,8 +30,11 @@ const ModalDialog = ({ isOpen, closeModal, children, title, width }) => {
               leaveTo="opacity-0 scale-95"
             >
               <Dialog.Panel
+                style={{
+                  maxWidth: `${width}px`,
+                }}
                 className={` w-full
-                max-w-[${width}px] transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all`}
+               transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all`}
               >
                 <Dialog.Title
                   as="div"

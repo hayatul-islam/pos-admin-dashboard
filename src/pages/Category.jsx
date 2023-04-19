@@ -2,15 +2,20 @@ import React, { useEffect, useState } from "react";
 import { AiOutlineDelete, AiOutlineEdit } from "react-icons/ai";
 import { HiChevronUpDown } from "react-icons/hi2";
 import { usePagination, useTable } from "react-table";
+import CreateCategoryModal from "../components/CreateCategoryModal";
+import DeleteModal from "../components/DeleteModal";
 import Table from "../components/Table";
 import TableHeader from "../components/TableHeader";
 import TablePagination from "../components/TablePagination";
 import DefaultLayout from "../layout/DefaultLayout";
+import ModalDialog from "../layout/ModalDialog";
 
 const Category = () => {
   const [data, setData] = useState([]);
   const [query, setQuery] = useState("");
   const [isAscending, setIsAscending] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [showModal, setShowModal] = useState("");
 
   useEffect(() => {
     fetch(
@@ -27,6 +32,19 @@ const Category = () => {
         // setData(data);
       });
   }, [query, isAscending]);
+
+  function closeModal() {
+    setIsOpen(false);
+  }
+
+  const handleEdit = () => {
+    setIsOpen(true);
+    setShowModal("edit");
+  };
+  const handleDelete = () => {
+    setIsOpen(true);
+    setShowModal("delete");
+  };
 
   const columns = React.useMemo(
     () => [
@@ -67,10 +85,10 @@ const Category = () => {
         accessor: "action",
         Cell: () => (
           <div className="flex items-center justify-end space-x-3.5">
-            <button>
+            <button onClick={handleEdit}>
               <AiOutlineEdit size={20} />
             </button>
-            <button>
+            <button onClick={handleDelete}>
               <AiOutlineDelete size={20} />
             </button>
           </div>
@@ -89,6 +107,26 @@ const Category = () => {
         <Table useTableData={useTableData} />
         <TablePagination data={data} useTableData={useTableData} />
       </div>
+      {isOpen && showModal === "edit" && (
+        <ModalDialog
+          isOpen={isOpen}
+          closeModal={closeModal}
+          title="Edit Product Category"
+          width="500"
+        >
+          <CreateCategoryModal closeModal={closeModal} />
+        </ModalDialog>
+      )}
+      {isOpen && showModal === "delete" && (
+        <ModalDialog
+          isOpen={isOpen}
+          closeModal={closeModal}
+          title=""
+          width="400"
+        >
+          <DeleteModal variant="Category" closeModal={closeModal} />
+        </ModalDialog>
+      )}
     </DefaultLayout>
   );
 };

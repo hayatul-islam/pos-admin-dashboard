@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
+import DefaultLayout from "../layout/DefaultLayout";
 import { usePagination, useTable } from "react-table";
 import { MdDelete } from "react-icons/md";
-import DefaultLayout from "../layout/DefaultLayout";
+import { BiEdit } from "react-icons/bi";
 import TableSetting from "../components/TableSetting/TableSetting";
 import MainTable from "../components/MainTable/MainTable";
 import Pagination from "../components/Pagination/Pagination";
 import ModalDialog from "../layout/ModalDialog";
-import{BiEdit} from 'react-icons/bi';
+import { AiFillEye } from "react-icons/ai";
 
-const Brand = () => {
+const Warehouse = () => {
   const [data, setData] = useState([]);
   const [quiery, setQuiery] = useState("");
 
@@ -81,30 +82,67 @@ const Brand = () => {
   const columns = React.useMemo(
     () => [
       {
-        Header: `BRAND Name`,
+        Header: `Warehouse`,
         accessor: "name",
         Cell: (row) => {
           return (
-            <div className="flex items-center">
-              <img
-                className="h-[50px] w-[50px] rounded-[50%]"
-                src="https://thumbs.dreamstime.com/z/laptop-computer-blank-white-screen-mobile-table-cafe-background-139812612.jpg"
-                alt="img"
-              />
-              <span className="ml-5">{row.cell?.row?.original?.name}</span>
+            <div className="">
+              <p className="font-medium text-primary">
+                {row.cell?.row?.original?.name.slice(0, 15)}
+              </p>
+              <p className="text-black">{row.cell?.row?.original?.email}</p>
             </div>
           );
         },
       },
       {
-        Header: "Product count",
-        accessor: "id",
+        Header: "Phone Number",
+        accessor: "number",
+        Cell: (row) => {
+          return <span className="text-black">0123456789</span>;
+        },
+      },
+      {
+        Header: "Country",
+        accessor: "coutntry name",
+        Cell: (row) => {
+          return <span className="text-black">Bangladesh</span>;
+        },
+      },
+      {
+        Header: "City",
+        accessor: "city",
+        Cell: (row) => {
+          return <span className="text-black">Dhaka</span>;
+        },
+      },
+      {
+        Header: "Zip code",
+        accessor: "zip",
+        Cell: (row) => {
+          return <span className="text-black">3320</span>;
+        },
+      },
+      {
+        Header: "Create on",
+        accessor: "date",
+        Cell: (row) => {
+          return (
+            <div className="bg-[#ccebfe] px-2 py-1 text-primary">
+              <p className="text-center text-[13px] font-medium">2.24 PM</p>
+              <p className="text-center text-[13px] font-medium">2023-04-25</p>
+            </div>
+          );
+        },
       },
       {
         Header: "Action",
         accessor: "action",
         Cell: (row) => (
           <div className="flex items-center justify-end space-x-3.5">
+            <button>
+              <AiFillEye className="text-[#20c997]" size={25} />
+            </button>
             <button
               onClick={() => {
                 openModal(), setEditId(row.cell?.row?.original?.id);
@@ -162,4 +200,4 @@ const Brand = () => {
   );
 };
 
-export default Brand;
+export default Warehouse;

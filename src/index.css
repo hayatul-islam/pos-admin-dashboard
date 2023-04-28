@@ -153,3 +153,7 @@ span.flatpickr-weekday,
 tbody tr:nth-child(even) {
   background: #f7f9fc;
 }
+
+.my-table-header th:hover .sort-icon{
+  opacity: 1;
+}

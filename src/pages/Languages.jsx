@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { usePagination, useTable } from "react-table";
-import { MdDelete } from "react-icons/md";
 import DefaultLayout from "../layout/DefaultLayout";
 import TableSetting from "../components/TableSetting/TableSetting";
 import MainTable from "../components/MainTable/MainTable";
 import Pagination from "../components/Pagination/Pagination";
+import { usePagination, useTable } from "react-table";
+import { MdDelete } from "react-icons/md";
+import { BiEdit } from "react-icons/bi";
 import ModalDialog from "../layout/ModalDialog";
-import{BiEdit} from 'react-icons/bi';
 
-const Brand = () => {
+const Languages = () => {
   const [data, setData] = useState([]);
   const [quiery, setQuiery] = useState("");
 
@@ -81,24 +81,29 @@ const Brand = () => {
   const columns = React.useMemo(
     () => [
       {
-        Header: `BRAND Name`,
+        Header: `Name`,
         accessor: "name",
         Cell: (row) => {
           return (
-            <div className="flex items-center">
-              <img
-                className="h-[50px] w-[50px] rounded-[50%]"
-                src="https://thumbs.dreamstime.com/z/laptop-computer-blank-white-screen-mobile-table-cafe-background-139812612.jpg"
-                alt="img"
-              />
-              <span className="ml-5">{row.cell?.row?.original?.name}</span>
+            <div className="">
+              <p className="text-black">{row.cell?.row?.original?.email}</p>
             </div>
           );
         },
       },
       {
-        Header: "Product count",
-        accessor: "id",
+        Header: "iso Code",
+        accessor: "iso_code",
+        Cell: (row) => {
+          return <span className="px-2 py-1 text-[14px]">bm</span>;
+        },
+      },
+      {
+        Header: "Translation",
+        accessor: "trnslation",
+        Cell: (row) => {
+          return <button className="text-[#6571ff] duration-200 hover:text-[#515acc] font-medium">Edit Translation</button>;
+        },
       },
       {
         Header: "Action",
@@ -162,4 +167,4 @@ const Brand = () => {
   );
 };
 
-export default Brand;
+export default Languages;

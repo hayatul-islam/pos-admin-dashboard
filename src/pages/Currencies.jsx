@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { usePagination, useTable } from "react-table";
-import { MdDelete } from "react-icons/md";
 import DefaultLayout from "../layout/DefaultLayout";
+import { usePagination, useTable } from "react-table";
+import { AiFillEye } from "react-icons/ai";
+import { BiEdit } from "react-icons/bi";
+import { MdDelete } from "react-icons/md";
 import TableSetting from "../components/TableSetting/TableSetting";
 import MainTable from "../components/MainTable/MainTable";
 import Pagination from "../components/Pagination/Pagination";
 import ModalDialog from "../layout/ModalDialog";
-import{BiEdit} from 'react-icons/bi';
 
-const Brand = () => {
+const Currencies = () => {
   const [data, setData] = useState([]);
   const [quiery, setQuiery] = useState("");
 
@@ -81,24 +82,29 @@ const Brand = () => {
   const columns = React.useMemo(
     () => [
       {
-        Header: `BRAND Name`,
+        Header: `Name`,
         accessor: "name",
         Cell: (row) => {
           return (
-            <div className="flex items-center">
-              <img
-                className="h-[50px] w-[50px] rounded-[50%]"
-                src="https://thumbs.dreamstime.com/z/laptop-computer-blank-white-screen-mobile-table-cafe-background-139812612.jpg"
-                alt="img"
-              />
-              <span className="ml-5">{row.cell?.row?.original?.name}</span>
+            <div className="">
+              <p className="text-black">{row.cell?.row?.original?.email}</p>
             </div>
           );
         },
       },
       {
-        Header: "Product count",
-        accessor: "id",
+        Header: "Code",
+        accessor: "code",
+        Cell: (row) => {
+          return <span className="bg-[#ccebfe] px-2 py-1 text-[#0099fb] text-[13px] rounded-md">USD</span>;
+        },
+      },
+      {
+        Header: "Symbol",
+        accessor: "symbol",
+        Cell: (row) => {
+          return <span className="bg-[#e0e3ff] px-2 py-1 text-[#6571ff] text-[13px] rounded-md">$</span>;
+        },
       },
       {
         Header: "Action",
@@ -162,4 +168,4 @@ const Brand = () => {
   );
 };
 
-export default Brand;
+export default Currencies;

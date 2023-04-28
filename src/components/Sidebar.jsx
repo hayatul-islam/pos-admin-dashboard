@@ -414,6 +414,39 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                   Brand
                 </NavLink>
               </li>
+              <li>
+                <NavLink
+                  to="/warehouse"
+                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
+                    pathname.includes("warehouse") &&
+                    "bg-graydark dark:bg-meta-4"
+                  }`}
+                >
+                  Warehouse
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/currencies"
+                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
+                    pathname.includes("currencies") &&
+                    "bg-graydark dark:bg-meta-4"
+                  }`}
+                >
+                  Currencies
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/languages"
+                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
+                    pathname.includes("languages") &&
+                    "bg-graydark dark:bg-meta-4"
+                  }`}
+                >
+                  Languages
+                </NavLink>
+              </li>
               {/* <!-- Menu Item Tables --> */}
 
               {/* <!-- Menu Item Settings --> */}
